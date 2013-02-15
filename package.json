@@ -1,0 +1,26 @@
+{
+    "name": "reverse-proxy"
+  , "version": "0.0.1"
+  , "engines": {
+      "node": "latest"
+    , "npm": "latest"
+  }
+  , "scripts": {
+      "test" : "make test"
+  }
+  , "private": true
+  , "dependencies": {
+      "async": "latest",
+      "express": "latest",
+      "node-http-proxy": "latest",
+      "node-oauth": "latest",
+      "node-async": "latest",
+      "restify": "latest",
+      "node-sina-weibo": "latest"
+  }
+  , "devDependencies": {
+      "mocha": "latest"
+    , "should": "latest"
+  }
+}
+ ~/d
