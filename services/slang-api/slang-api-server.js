@@ -1,14 +1,17 @@
 var fs = require('fs'),
 	nconf = require('nconf'),
 	path = require('path'),
-	express = require('express'),
-	http = require('http');
+	restify = require('restify');
 
-var app = express();
+var server = restify.createServer({
+	name: 'Slang API',
+	version: '0.0.1'
+});
+server.use(restify.bodyParser());
 
 nconf.use( "file", {	file: "config.json" } );
 
-console.log("config=\n" + nconf.get('slang'));
+console.log("config=\n" + JSON.stringify(nconf.get('slang')));
 
 String.prototype.multiReplace = function(hash) {
 	var str = this, key;
@@ -18,19 +21,25 @@ String.prototype.multiReplace = function(hash) {
 	return str;
 }
 
-app.get('/translate', function(req, res) {
-	// replace all slang text 
-	console.log('slang: received '+ req.body);
-	var text = req.body;
-	var body = text.multiReplace(nconf.get('slang'));
+// replace all slang text 
+function translateSlang(msg) {
+	console.log('slang: received '+ msg);
+	var text = msg;
+	text = text.multiReplace(nconf.get('slang'));
 	console.log('slang: sent '+ text);
+	return text;
+}
 
-	res.setHeader('Content-Type', 'text/plain');
-	res.setHeader('Content-Length', body.length);
-	res.end(body);
+function translateMessage(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "X-Requested-With");
+	res.send( translateSlang( req.params.message ) );
+	return next();
+}
 
+server.get('/translate/:message', translateMessage);
+
+server.listen(nconf.get("port"), function() {
+	console.log('%s server listening at %s', server.name, server.url);
 });
 
-app.listen(nconf.get("port"));
-
-console.log('Slang API server listening on '+ nconf.get('host') + ":" + nconf.get('port'));

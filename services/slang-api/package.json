@@ -10,7 +10,7 @@
       "fs": "latest",
       "http": "latest",
       "nconf": "latest",
-      "express": "latest"
+      "restify": "latest"
   }
   , "devDependencies": {
       "jasmine-node": "latest"
