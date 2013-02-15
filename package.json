@@ -1,5 +1,5 @@
 {
-    "name": "reverse-proxy"
+    "name": "proxify"
   , "version": "0.0.1"
   , "engines": {
       "node": "latest"
