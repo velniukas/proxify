@@ -39,5 +39,5 @@ var options = { router: nconf.get('router') };
 
 // reverse proxy using routes.json config lookup table 
 var proxyServer = httpProxy.createServer(options);
-proxyServer.listen(80);
+proxyServer.listen(3000);
 
