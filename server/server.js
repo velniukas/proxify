@@ -8,10 +8,10 @@ var fs = require('fs'),
 
 nconf.argv()
 	 .env()
-	 .file( 'server', {	file: 'server.config.json', dir: '../config/' } );
+	 .file( 'server', {	file: '../config/server.json' } );
 
 // load the reverse proxy route table 
-nconf.use( 'file', { file: '../config/routes.json' } );
+nconf.file( 'routes', { file: '../config/routes.json' } );
 console.log("config=\n" + JSON.stringify(nconf.get('router')));
 var options = { router: nconf.get('router') };
 // generic function to load the credentials from disk
@@ -39,5 +39,5 @@ var options = { router: nconf.get('router') };
 
 // reverse proxy using routes.json config lookup table 
 var proxyServer = httpProxy.createServer(options);
-proxyServer.listen(3000);
-
+proxyServer.listen(nconf.get('port'));
+console.log('proxy server listening at ' + nconf.get('port'));

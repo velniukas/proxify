@@ -9,9 +9,11 @@ var server = restify.createServer({
 });
 server.use(restify.bodyParser());
 
-nconf.use( "file", {	file: "config.json" } );
+nconf.file( "config", {	file: "../../config/slang-api.json" } );
+console.log("config:\n" + JSON.stringify(nconf.get('slang-api-port')));
+nconf.file( "slang", {	file: "../../config/slang.json" } );
 
-console.log("config=\n" + JSON.stringify(nconf.get('slang')));
+console.log("slang:\n" + JSON.stringify(nconf.get('slang')));
 
 String.prototype.multiReplace = function(hash) {
 	var str = this, key;
@@ -39,7 +41,7 @@ function translateMessage(req, res, next) {
 
 server.get('/translate/:message', translateMessage);
 
-server.listen(nconf.get("port"), function() {
+server.listen(nconf.get("slang-api-port"), function() {
 	console.log('%s server listening at %s', server.name, server.url);
 });
 
