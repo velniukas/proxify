@@ -1,0 +1,9 @@
+{
+    "host": "localhost",
+    "port": "9000",
+    "slang": {
+        "damn": "DAMN!",
+        "shit": "SHEEET!",
+        "fuck": "F@RK!"
+    }
+}

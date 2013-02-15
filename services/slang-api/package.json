@@ -1,19 +1,16 @@
 {
-    "name": "proxify"
+    "name": "slang-api"
   , "version": "0.0.1"
   , "engines": {
       "node": "latest"
     , "npm": "latest"
   }
-  , "scripts": {
-      "test" : "make test"
-  }
   , "private": true
   , "dependencies": {
       "fs": "latest",
       "http": "latest",
-      "http-proxy": "latest",
-      "nconf": "latest"
+      "nconf": "latest",
+      "express": "latest"
   }
   , "devDependencies": {
       "jasmine-node": "latest"
