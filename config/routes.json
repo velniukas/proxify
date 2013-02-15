@@ -1,6 +1,5 @@
-{router: {
-		'foo.com/baz': '127.0.0.1:8001',
-		'foo.com/buz': '127.0.0.1:8002',
-		'bar.com/buz': '127.0.0.1:8003'
+{
+	"router": {
+		"localhost/translate": "localhost:9000/translate"
 	}
 }
