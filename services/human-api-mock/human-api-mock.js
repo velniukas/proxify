@@ -4,18 +4,18 @@ var fs = require('fs'),
 	restify = require('restify');
 
 var server = restify.createServer({
-	name: 'Turk API',
+	name: 'human-api-mock API',
 	version: '0.0.1'
 });
 server.use(restify.bodyParser());
 
-nconf.file( "config", {	file: "../../config/turk-api.json" } );
-console.log("config:\n" + JSON.stringify(nconf.get('turk-api-port')));
+nconf.file( "human-api-mock", {	file: "../../config/human-api-mock.json" } );
+console.log("human-api-mock:\n" + JSON.stringify(nconf.get('port')));
 
 // Routes
 require('./routes')(server);
 
-server.listen(nconf.get("turk-api-port"), function() {
+server.listen(nconf.get("port"), function() {
 	console.log('%s server listening at %s', server.name, server.url);
 });
 

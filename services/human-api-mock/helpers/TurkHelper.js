@@ -1,7 +1,7 @@
 var fs = require('fs'),
 	nconf = require('nconf');
 	
-nconf.file( "human-api-mock", {	file: "../../config/human-api.json" } );
+nconf.file( "human-api-mock", {	file: "../../config/human-api-mock.json" } );
 console.log("human-api-mock:\n" + JSON.stringify(nconf.get('mock')));
 	
 

@@ -9,13 +9,13 @@ var server = restify.createServer({
 });
 server.use(restify.bodyParser());
 
-nconf.file( "config", {	file: "../../config/slang-api.json" } );
-console.log("config:\n" + JSON.stringify(nconf.get('slang-api-port')));
+nconf.file( "slang-api", {	file: "../../config/slang-api.json" } );
+console.log("slang-api:\n" + JSON.stringify(nconf.get('port')));
 
 // Routes
 require('./routes')(server);
 
-server.listen(nconf.get("slang-api-port"), function() {
+server.listen(nconf.get("port"), function() {
 	console.log('%s server listening at %s', server.name, server.url);
 });
 

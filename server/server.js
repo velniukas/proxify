@@ -6,10 +6,10 @@ var fs = require('fs'),
 
 nconf.argv()
 	 .env()
-	 .file( 'server', {	file: './config/server.json' } );
+	 .file( 'server', {	file: '../config/server.json' } );
 
 // load the reverse proxy route table 
-nconf.file( 'routes', { file: './config/routes.json' } );
+nconf.file( 'routes', { file: '../config/routes.json' } );
 console.log("config=\n" + JSON.stringify(nconf.get('router')));
 var options = { router: nconf.get('router') };
 
