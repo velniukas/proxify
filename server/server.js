@@ -14,6 +14,7 @@ nconf.argv()
 nconf.file( 'routes', { file: '../config/routes.json' } );
 console.log("config=\n" + JSON.stringify(nconf.get('router')));
 var options = { router: nconf.get('router') };
+
 // generic function to load the credentials from disk
 //function getCredentialsContext(cert) {
 //	return crypto.createCredentials({
