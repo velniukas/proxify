@@ -13,7 +13,8 @@
       "fs": "latest",
       "http": "latest",
       "http-proxy": "latest",
-      "nconf": "latest"
+      "nconf": "latest",
+      "restify": "latest"
   }
   , "devDependencies": {
       "jasmine-node": "latest"

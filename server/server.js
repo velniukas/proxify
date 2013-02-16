@@ -4,6 +4,16 @@ var fs = require('fs'),
 	httpProxy = require('http-proxy'),
 	restify = require('restify');
 
+var server = restify.createServer({
+	name: 'Proxify API',
+	version: '0.0.1'
+});
+server.use(restify.bodyParser());
+server..use(restify.queryParser());
+
+// Routes
+require('./routes')(server);
+
 nconf.argv()
 	 .env()
 	 .file( 'server', {	file: '../config/server.json' } );
