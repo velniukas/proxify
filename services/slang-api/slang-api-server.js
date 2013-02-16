@@ -3,8 +3,6 @@ var fs = require('fs'),
 	path = require('path'),
 	restify = require('restify');
 
-var slang = require('./helpers/SlangHelper');
-
 var server = restify.createServer({
 	name: 'Slang API',
 	version: '0.0.1'
