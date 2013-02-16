@@ -1,10 +1,13 @@
+module.exports = function() {};
+
 var fs = require('fs'),
 	nconf = require('nconf');
 	http = require('http'),
+	httpProxy = require('http-proxy'),
 //	https = require('https'),
 	//path = require('path'),
 //	crypto = require('crypto'),
-	httpProxy = require('http-proxy');
+	restify = require('restify');
 
 nconf.argv()
 	 .env()
