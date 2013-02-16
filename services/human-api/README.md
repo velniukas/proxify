@@ -1,19 +1,19 @@
-HUMAN-API-SERVER
+HUMAN-API-MOCK
 ================
 
 run this server to provide a basic TRANSLATE regexp
 
 To run:
 
-node turk-api-server.js
+node human-api-mock.js
 
 To configure:
 config.json
 	port: sets the port to run on
-	turk: a hash of regexp in form "original" : "replacement"
+	mock: dummy text to prepend
 
 to test:
-curl http://localhost:9000/translate/damn+you
+curl http://localhost:7000/translate/translate-this-into-french
 
 or run the test.js in /spec folder
 

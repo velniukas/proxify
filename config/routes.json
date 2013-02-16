@@ -1,5 +1,6 @@
 {
 	"router": {
-		"localhost/translate": "localhost:9000/translate"
+		"localhost/translate": "localhost:9000/translate",
+		"localhost/human-translate": "localhost:7000/translate"
 	}
 }

@@ -1,22 +1,14 @@
 var fs = require('fs'),
 	nconf = require('nconf');
 	
-nconf.file( "turk", {	file: "../../config/turk.json" } );
-console.log("turk:\n" + JSON.stringify(nconf.get('turk')));
+nconf.file( "human-api-mock", {	file: "../../config/human-api.json" } );
+console.log("human-api-mock:\n" + JSON.stringify(nconf.get('mock')));
 	
-String.prototype.multiReplace = function(hash) {
-	var str = this, key;
-	for( key in hash ) {
-		str = str.replace( new RegExp( key, 'g' ), hash[key] );
-	}
-	return str;
-}
 
-// translate text
+// prepends some simple text to the 'translated message'
 module.exports.translate = function(msg) {
 	console.log('turk: received '+ msg);
-	var text = msg;
-	text = text.multiReplace(nconf.get('turk'));
+	var text = nconf.get('mock') + msg;
 	console.log('turk: sent '+ text);
 	return text;
 }
