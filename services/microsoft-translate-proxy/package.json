@@ -1,5 +1,5 @@
 {
-    "name": "human-api"
+    "name": "microsoft-translate-proxy"
   , "version": "0.0.1"
   , "engines": {
       "node": "latest"
@@ -8,13 +8,9 @@
   , "private": true
   , "dependencies": {
       "fs": "latest",
-      "http": "latest",
       "nconf": "latest",
-      "crypto": "latest",
-      "multipart": "latest",
-      "restify": "latest"
+      "mstranslator": "latest"
   }
   , "devDependencies": {
-      "jasmine-node": "latest"
   }
 }
